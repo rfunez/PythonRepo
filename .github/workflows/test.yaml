@@ -1,7 +1,9 @@
 name: "Desafio WF"
 run-name: "Running ${{github.workflow}} on ${{github.ref_name}}"
 on:
-   workflow_dispatch: {}
+   push:
+     
+   workflow_dispatch:
 
 jobs:
   run_test:
@@ -16,7 +18,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
             python-version: "${{matrix.py_release}}"
-      - name: "Install dependencies"
+      - name: "Install pip dependencies"
         run: pip install -r requirements.txt
       - name: "Run test"
         run: PYTHONPATH=. pytest 
