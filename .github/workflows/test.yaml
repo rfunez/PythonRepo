@@ -8,7 +8,11 @@ jobs:
     strategy:
       matrix:
         py_release: ["3.10", "3.11", "3.12"]
-    runs-on: ubuntu-latest
+        runners: ["ubuntu-latest", "windows-latest"]
+        exclude:
+          - runners: windows-latest
+          - py_release: 3.12
+    runs-on: ${{matrix.runners}}
     steps:
       - name: "Checkout"
         uses: actions/checkout@v4
