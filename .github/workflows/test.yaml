@@ -2,13 +2,7 @@ name: "Desafio WF"
 run-name: "Running ${{github.workflow}} on ${{github.ref_name}}"
 on:
    workflow_dispatch: 
-   push:
-     branches:
-       - develop
-   pull_request: 
-      branches: 
-        - main
-         
+    
 jobs:
   run_test:
     strategy:
