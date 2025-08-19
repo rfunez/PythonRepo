@@ -1,8 +1,8 @@
 name: "Desafio WF"
 run-name: "Running ${{github.workflow}} on ${{github.ref_name}}"
 on:
-   workflow_dispatch: 
-    
+   workflow_dispatch: {}
+
 jobs:
   run_test:
     strategy:
