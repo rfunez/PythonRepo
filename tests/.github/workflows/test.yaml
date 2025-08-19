@@ -1,0 +1,26 @@
+name: "Desafio WF"
+run-name: "Running ${{github.workflow}} on ${{github.ref_name}}"
+on:
+   push:
+     branches:
+       - develop
+   pull_request: 
+      branches: 
+        - main
+jobs:
+  run_test:
+    runs-on: ubuntu-latest
+    env:
+        py_release: ''
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+      - name: "Install Python"
+        uses: actions/setup-python@v5
+        with:
+            python-version: "${{env.py_release}}"
+      - name: "Install dependencies"
+        run: pip install -r requirements.txt
+      - name: "Run test"
+        run: pytest 
+
