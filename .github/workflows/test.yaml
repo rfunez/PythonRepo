@@ -11,7 +11,6 @@ jobs:
         runners: ["ubuntu-latest", "windows-latest"]
         exclude:
           - runners: windows-latest
-          - py_release: 3.12
     runs-on: ${{matrix.runners}}
     steps:
       - name: "Checkout"
